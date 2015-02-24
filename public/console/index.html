@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8" />
+  <base href="/console"/>
+  <title>SMS Robotics Console</title>
+  <link rel="stylesheet" href="console/css/bootstrap.min.css">
+  <script type="text/javascript" src="console/js/angular.min.js"></script>
+  <script type="text/javascript" src="console/js/angular-route.min.js"></script>
+  <script type="text/javascript" src="console/js/underscore-min.js"></script>
+  <script type="text/javascript" src="console/js/restangular.min.js"></script>
+  <script type="text/javascript" src="console/js/app.js"></script>
+</head>
+<body>
+  <div ng-app="sms-robotics">
+  <div ng-view></div>
+
+  <!-- CACHE FILE: players.html -->
+  <script type="text/ng-template" id="players.html">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th><a href="#/new"><i class="glyphicon-plus-sign"></i></a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="player in players" ng-show="player.id">
+          <td>{{player.id}}</td>
+          <td>{{player.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <!-- CACHE FILE: new.html -->
+  <script type="text/ng-template" id="new.html">
+    <form name="newPlayerForm">
+      <table>
+        <tbody>
+          <tr class="control-group" ng-class="{error: newPlayerForm.id.$invalid}">
+            <td>ID:</td>
+            <td>
+              <input type="text" name="id" ng-model="player.id" required>
+              <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+            </td>
+          </tr>
+          <tr class="control-group" ng-class="{error: newPlayerForm.name.$invalid}">
+            <td>Name:</td>
+            <td>
+              <input type="text" name="name" ng-model="player.name" required>
+              <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#/" class="btn">Cancel</a>
+      <button ng-click="save()" ng-disabled="isClean() || newPlayerForm.$invalid" class="btn btn-primary">Save</button>
+      <button ng-click="destroy()" ng-show="player._id" class="btn btn-danger">Delete</button>
+    </form>
+  </script>
+</body>
+
+</html>
