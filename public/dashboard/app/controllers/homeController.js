@@ -60,7 +60,7 @@ app.controller('homeController', [
     }
 
     $scope.orderfunc = function(player) {
-        return player.kills / player.deaths;
+        return player.total_kills / player.total_deaths;
     }
 
     $scope.filterfunc = function (player) {
