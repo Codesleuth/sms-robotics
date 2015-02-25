@@ -67,4 +67,8 @@ app.controller('homeController', [
         return !player.dead;
     }
 
+    $scope.orderActivefunc = function(player) {
+        return player.kills / player.deaths;
+    }
+
 }]);
