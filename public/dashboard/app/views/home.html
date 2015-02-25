@@ -1,0 +1,32 @@
+﻿<div style="height:140px"></div>
+<div class="row spesh-font">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        HIGHSCORE
+        <div class="row">
+            <div class="col-md-6">Name</div>
+            <div class="col-md-3">Kills</div>
+            <div class="col-md-3">Deaths</div>
+        </div>
+        <div ng-repeat="player in players | orderBy: orderfunc:true track by player.id" class="row animated-row">
+            <div class="col-md-6 animated-child"><span>#{{$index + 1}} {{player.name}}</span><input type="hidden" value="{{player.id}}" /></div>
+            <div class="col-md-3 animated-child">{{player.total_kills}}</div>
+            <div class="col-md-3 animated-child">{{player.total_deaths}}</div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5" ng-animate-children>
+        Active Players
+        <div class="row">
+            <div class="col-md-6">Name</div>
+            <div class="col-md-3">Kills</div>
+            <div class="col-md-3">Deaths</div>   
+        </div>
+        <div ng-repeat="player in players | filter: filterfunc | orderBy: orderfunc:true track by player.id" class="row animated-row">
+            <div class="col-md-6 animated-child">#{{$index + 1}} {{player.name}}<input type="hidden" value="{{player.id}}" /></div>
+            <div class="col-md-3 animated-child">{{player.kills}}</div>
+            <div class="col-md-3 animated-child">{{player.deaths}}</div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>

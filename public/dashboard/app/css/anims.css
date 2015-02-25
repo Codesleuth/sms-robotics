@@ -1,0 +1,53 @@
+﻿.animated-row {
+    overflow: hidden;
+}
+.animated-row .animated-child {
+    position: relative;
+}
+.animated-row, .animated-row .animated-child{
+    -webkit-transition: 1s linear all;
+    -moz-transition: 1s linear all;
+    -ms-transition: 1s linear all;
+    -o-transition: 1s linear all;
+    transition: 1s linear all;
+}
+.animated-row.ng-enter .animated-child, .animated-row.ng-leave.ng-leave-active .animated-child {
+    opacity:0;
+    right:-25%;
+}
+.animated-row.ng-leave .animated-child, .animated-row.ng-enter.ng-enter-active .animated-child {
+    opacity:1;
+    right:0%;
+}
+
+
+@font-face {
+   src:url('Font/Pixel Emulator.otf');
+   font-family: "pixel emulator";   
+}
+
+.spesh-font{
+    font-family:"pixel emulator", sans;
+    font-size: 40px;
+    color:#42145f;
+    text-align:left;
+}
+
+.spesh-font-white{
+    font-family:"pixel emulator", sans;
+    font-size: 40px;
+    color:#FFFFFF;
+    text-align:left;
+}
+
+.esendex {
+    background-color: #FFFFFF;
+}
+
+.navbar {
+    background-color: #42145f;
+}
+
+.lrg-font {
+    font-size: 72px;
+}
